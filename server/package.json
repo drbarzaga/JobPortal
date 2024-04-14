@@ -1,18 +1,22 @@
 {
   "name": "server",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
-  "license": "MIT",
   "scripts": {
     "start": "nodemon src/server.ts",
     "build": "tsc",
     "dev": "ts-node src/server.ts"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
     "express": "^4.19.2",
-    "nodemon": "^3.1.0",
-    "winston": "^3.13.0"
+    "mongoose": "^8.3.1",
+    "nodemon": "^3.1.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
