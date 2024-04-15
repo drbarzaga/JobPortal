@@ -21,7 +21,9 @@
 - Company representatives can view a list of job applicants and can contact them, initiative an interview, or perform some other action related to their post.
 - Registered users should be able to search for jobs and filter the results based on location, required skills, salary, experience level, etc
 
-## Demo
+## What will we developing?
+![Desktop - 1 1](https://github.com/drbarzaga/job-portal/assets/12173976/3215b2d8-c351-4816-971a-7b4acb5a8a45)
+
 
 ## Tech Stack
 
