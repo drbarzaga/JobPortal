@@ -1,0 +1,18 @@
+{
+  "name": "job-portal",
+  "version": "1.0.0",
+  "description": "<div align=\"center\">   <h1 align=\"center\">Job Portal</h1>   <h3>     A free and open source job hunting and recruiting solution build with React, Node, Express, MongoDB and TailwindCSS   </h3> </div>",
+  "main": "index.js",
+  "scripts": {
+    "install:all": "npm run install:server && npm run install:client",
+    "install:server": "cd server && npm install && cd ..",
+    "install:client": "cd client && npm install && cd ..",
+    "dev": "concurrently \"cd server && npm start\" \"cd client && npm run dev\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
