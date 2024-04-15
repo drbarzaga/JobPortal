@@ -58,6 +58,8 @@ docker-compose up
 
 ### 3. Running locally
 
+Copy the `.env.example` file located in the server folder to `.env` file and define the environment variables there.
+
 ```bash
 npm run install:all
 npm run dev
