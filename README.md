@@ -50,7 +50,7 @@ git clone git@github.com:drbarzaga/job-portal.git
 cd job-portal
 ```
 
-### 2. Running in docker
+### 2. Running in docker (Recommended)
 
 ```shell
 docker-compose up
