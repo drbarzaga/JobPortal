@@ -52,6 +52,14 @@ git clone git@github.com:drbarzaga/job-portal.git
 cd job-portal
 ```
 
+### 2. Environment
+
+You need to create a `.env` file inside the `server` folder, and define the following env variables there:
+
+```shell
+PORT=5500 # API -> http://localhost:5500
+```
+
 ### 2. Running in docker (Recommended)
 
 ```shell
@@ -59,8 +67,6 @@ docker-compose up
 ```
 
 ### 3. Running locally
-
-Copy the `.env.example` file located in the server folder to `.env` file and define the environment variables there.
 
 ```bash
 npm run install:all

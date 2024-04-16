@@ -25,14 +25,13 @@ services:
     build: ./client
     container_name: job-portal-client
     ports:
-      - "5173:5173"
-    stdin_open: true
+      - "5137:5137"
     tty: true  
     depends_on:
       - server
     volumes:
-      - ./client:/client
-      - /client/node_modules
+      - ./client:/app
+      - /app/node_modules
 
 volumes:
   mongo-data:
