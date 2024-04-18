@@ -22,9 +22,8 @@
 - Registered users should be able to search for jobs and filter the results based on location, required skills, salary, experience level, etc
 
 ## What will we developing?
+
 <img width="1512" alt="image" src="https://github.com/drbarzaga/job-portal/assets/12173976/158e6123-3f68-41d1-ad8b-02991feaddc4">
-
-
 
 ## Tech Stack
 
@@ -58,7 +57,7 @@ cd job-portal
 You need to create a `.env` file inside the `server` folder, and define the following env variables there:
 
 ```shell
-PORT=5500 # API -> http://localhost:5500
+PORT=5555 # API -> http://localhost:5555
 ```
 
 ### 2. Running in docker (Recommended)
