@@ -22,7 +22,8 @@
 - Registered users should be able to search for jobs and filter the results based on location, required skills, salary, experience level, etc
 
 ## What will we developing?
-![Desktop - 1 1](https://github.com/drbarzaga/job-portal/assets/12173976/3215b2d8-c351-4816-971a-7b4acb5a8a45)
+<img width="1512" alt="image" src="https://github.com/drbarzaga/job-portal/assets/12173976/158e6123-3f68-41d1-ad8b-02991feaddc4">
+
 
 
 ## Tech Stack
