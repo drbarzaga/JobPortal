@@ -33,9 +33,8 @@
 - [Express](https://expressjs.com) - Framework
 - [Typescript](https://www.typescriptlang.org/) – Language
 - [Tailwind](https://tailwindcss.com/) – CSS
-- [shadcn/ui](https://ui.shadcn.com) - UI Components
-- [Prisma](https://prisma.io) - ORM
 - [MongoDB](https://www.mongodb.com/) - Database
+- [Mogoose](https://mongoosejs.com/) - Database ODM
 
 ## Getting Started
 
