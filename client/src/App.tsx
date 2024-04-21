@@ -531,7 +531,7 @@ function Wrapper() {
                 />
               </div>
 
-              <LocationSelect />
+              {/* <LocationSelect /> */}
 
               <button
                 type="button"
@@ -540,6 +540,13 @@ function Wrapper() {
                 Search
               </button>
             </div>
+          </div>
+          {/* Jobs Search Area Mix Search Input with Location Dropdown & Search Button End */}
+
+          <div className="flex items-center justify-between">
+            <h3 className="text-lg font-semibold text-gray-900 mb-6">
+              Search Results
+            </h3>
 
             {/* Search Results Count */}
             <div className="flex items-center gap-x-2">
@@ -548,14 +555,9 @@ function Wrapper() {
               </span>
             </div>
           </div>
-          {/* Jobs Search Area Mix Search Input with Location Dropdown & Search Button End */}
-
-          <h3 className="text-lg font-semibold text-gray-900 mb-6">
-            Search Results
-          </h3>
 
           {/* Jobs List Grid extra-large - 5 columns , large - 4 columns, medium - 3 columns, small - 2 columns */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {jobs.map((job, index) => (
               <div
                 key={job.id}
