@@ -1,0 +1,28 @@
+import { Application, Request, Response, NextFunction } from "express";
+import UsersRoutes from "./users.routes";
+import JobsRoutes from "./jobs.routes";
+import JobApplicationsRoutes from "./job-applications.routers";
+import { ApiError } from "../helpers/api-error";
+import AuthRoutes from "./auth.routes";
+import { StatusCodes } from "http-status-codes";
+
+export default class Routes {
+  constructor(app: Application) {
+    app.use("/api/v1/auth", new AuthRoutes().router);
+    app.use("/api/v1/jobs", new JobsRoutes().router);
+    app.use("/api/v1/users", new UsersRoutes().router);
+    app.use("/api/v1/job", new JobApplicationsRoutes().router);
+
+    app.get("/health", (req: Request, res: Response) => {
+      res.status(StatusCodes.OK).send(`⚡️[Server]: Server is running!`);
+    });
+
+    app.use("*", (req: Request, res: Response, next: NextFunction) => {
+      const error = new ApiError(
+        StatusCodes.NOT_FOUND,
+        `🔍[Server]: Route not found: ${req.originalUrl}`
+      );
+      next(error);
+    });
+  }
+}
