@@ -7,6 +7,7 @@ on:
 jobs:
   deploy:
     name: "Deploy to Netlify"
+    runs-on: ubuntu-latest
     steps:
       - uses: jsmrcaga/action-netlify-deploy@v2.0.0
         with:
