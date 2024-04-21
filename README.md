@@ -1,10 +1,10 @@
 <div align="center">
   <h1 align="center">Job Portal</h1>
-  <h4>
-    A free and open source job hunting and recruiting solution build with React, Node, Express, MongoDB and TailwindCSS
-  </h4>
 </div>
-Job portal is an free and open source platform designed to help job seekers find suitable employment opportunities and employers post job listings efficiently.
+<h4>
+    Job portal is an free and open source platform designed to help job seekers find suitable employment opportunities and employers post job listings efficiently.
+    build with React, Node, Express, MongoDB and TailwindCSS.
+</h4>
 
 <div align="center">
   <a href="https://www.jobportal.io"></a>
