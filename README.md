@@ -74,7 +74,7 @@ npm run install:all
 npm run dev
 ```
 
-> If you're going to run the application locally, make sure you have MongoDB installed on your computer and add the `MONGO_URI` environment variable to the server's `.env` file.
+> If you're going to run the application locally, make sure you have MongoDB installed on your computer and add the `MONGO_URL` environment variable to the server's `.env` file.
 
 ### 4. Open App in your browser
 
