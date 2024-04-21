@@ -24,6 +24,8 @@
 
 ## What will we developing?
 
+<img width="1512" alt="image" src="https://github.com/drbarzaga/JobPortal/assets/12173976/99bbf7cb-383a-4f4d-b0f6-9985bcc60dfb">
+
 <img width="1512" alt="image" src="https://github.com/drbarzaga/job-portal/assets/12173976/f83f4a80-fd5f-49f5-b519-f6bb4f9260e5">
 
 
