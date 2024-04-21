@@ -23,7 +23,8 @@
 
 ## What will we developing?
 
-<img width="1512" alt="image" src="https://github.com/drbarzaga/job-portal/assets/12173976/158e6123-3f68-41d1-ad8b-02991feaddc4">
+<img width="1512" alt="image" src="https://github.com/drbarzaga/job-portal/assets/12173976/f83f4a80-fd5f-49f5-b519-f6bb4f9260e5">
+
 
 ## Tech Stack
 
