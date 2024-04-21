@@ -70,7 +70,7 @@ UserAccountSchema.pre("save", async function (next) {
   if (!user.isModified("password")) return next();
 
   // Hash the password
-  bcrypt.hash(user.password, 10, (err, hash) => {
+  bcrypt.hash(user.password, 10, (err: any, hash: any) => {
     if (err) {
       return next(err);
     }
