@@ -2,7 +2,7 @@
   <h1 align="center">Job Portal</h1>
 </div>
 <h4>
-    Job portal is an free and open source platform designed to help job seekers find suitable employment opportunities and employers post job listings efficiently.
+    Job Portal is an free and open source platform, designed to help job seekers find suitable employment opportunities and employers post job listings efficiently.
     build with React, Node, Express, MongoDB and TailwindCSS.
 </h4>
 
