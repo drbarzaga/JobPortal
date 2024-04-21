@@ -57,7 +57,8 @@ cd job-portal
 You need to create a `.env` file inside the `server` folder, and define the following env variables there:
 
 ```shell
-PORT=5555 # API -> http://localhost:5555
+PORT=5555  #API -> http://localhost:5555
+MONGO_URL=mongodb://localhost:27017/job-portal #With docker use this mongodb://job-portal-mongo:27017/job-portal
 ```
 
 ### 2. Running in docker (Recommended)
