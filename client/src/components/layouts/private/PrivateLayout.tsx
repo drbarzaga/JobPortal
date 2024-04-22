@@ -1,0 +1,27 @@
+import { FC } from "react";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import usePageTitle from "../../../hooks/usePageTitle";
+
+type Props = {
+  title?: string;
+  children: React.ReactNode;
+};
+
+const PrivateLayout: FC<Props> = ({ title, children }) => {
+  usePageTitle(title);
+
+  return (
+    <div className="flex flex-col bg-gray-50">
+      <Header />
+
+      <div className="mx-auto flex w-full items-start gap-x-8 px-4 py-10 sm:px-6 lg:px-8">
+        {children}
+      </div>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default PrivateLayout;
