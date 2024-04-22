@@ -31,9 +31,9 @@
 
 ## Tech Stack
 
-- [React](https://react.dev/) - Library UI
+- [React](https://react.dev/) - Frontend UI Library
 - [Vite](https://vitejs.dev/) - Frontend Tooling
-- [Express](https://expressjs.com) - Framework
+- [Express](https://expressjs.com) - Backend Framework
 - [Typescript](https://www.typescriptlang.org/) – Language
 - [Tailwind](https://tailwindcss.com/) – CSS
 - [MongoDB](https://www.mongodb.com/) - Database
