@@ -10,8 +10,6 @@
   <a href="https://www.jobportal.io"></a>
 </div>
 
-<br/>
-
 ## Features
 
 - People can register as job seekers, build their profiles, and look for jobs matching their skill sets.
@@ -25,6 +23,8 @@
 ## What will we developing?
 
 <img width="1512" alt="image" src="https://github.com/drbarzaga/JobPortal/assets/12173976/99bbf7cb-383a-4f4d-b0f6-9985bcc60dfb">
+
+<img width="1512" alt="image" src="https://github.com/drbarzaga/JobPortal/assets/12173976/708e7bad-b7b5-4d06-97c9-43c7e264de62">
 
 <img width="1512" alt="image" src="https://github.com/drbarzaga/job-portal/assets/12173976/f83f4a80-fd5f-49f5-b519-f6bb4f9260e5">
 
