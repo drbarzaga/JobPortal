@@ -22,20 +22,20 @@ const UserAccountSchema = new mongoose.Schema(
     },
     date_of_birth: {
       type: Date,
-      required: true,
+      required: false,
     },
     gender: {
       type: String,
-      required: true,
+      required: false,
       length: 10,
     },
     is_active: {
       type: Boolean,
-      required: true,
+      required: false,
     },
     contact_number: {
       type: String,
-      required: true,
+      required: false,
       length: 15,
     },
     sms_notification_active: {
