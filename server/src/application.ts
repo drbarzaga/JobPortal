@@ -7,7 +7,7 @@ import mongoose from "mongoose";
 import Routes from "./routes";
 import Seeders from "./seeders";
 import { errorMiddleware } from "./middlewares/error.middleware";
-
+import "./helpers/auth-strategies";
 class Application {
   public server;
 
@@ -16,9 +16,9 @@ class Application {
 
     this.environment();
     this.database();
-    this.routes();
-    // this.initDirectories();
     this.middlewares();
+    this.routes();
+    this.initDirectories();
   }
 
   private environment() {
