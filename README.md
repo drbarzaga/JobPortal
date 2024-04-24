@@ -94,3 +94,8 @@ If you'd like to contribute, please fork the repository and make changes as you'
 <a href="https://github.com/drbarzaga/job-portal/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=drbarzaga/job-portal" />
 </a>
+
+## Support 🤝
+
+Thank you for contributing to our open-source project! We appreciate your support 🙏
+Don't forget to leave a star ⭐
