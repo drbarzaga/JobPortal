@@ -73,9 +73,13 @@ class Application {
       : 5555;
     this.server
       .listen(PORT, () => {
-        console.log(
-          `⚡️[Server]: Server is running at http://localhost:${PORT}`
-        );
+        if (process.env.NODE_ENV === "development") {
+          console.log(
+            `⚡️[Server]: Server is running at http://localhost:${PORT}`
+          );
+        } else {
+          console.log(`⚡️[Server]: Server is running`);
+        }
       })
       .on("error", (err: any) => {
         if (err.code === "EADDRINUSE") {
