@@ -1,4 +1,5 @@
 import { Router } from "express";
+import passport from "passport";
 import AuthController from "../controllers/auth.controller";
 import { asyncWrapper } from "../helpers/async-wrapper";
 

@@ -63,6 +63,15 @@ const UserAccountSchema = new mongoose.Schema(
   }
 );
 
+// Set the registration date on save
+UserAccountSchema.pre("save", function (next) {
+  let user = this;
+  if (!user.registration_date) {
+    user.registration_date = new Date();
+  }
+  next();
+});
+
 // Password hashing
 UserAccountSchema.pre("save", async function (next) {
   let user = this;
@@ -78,6 +87,14 @@ UserAccountSchema.pre("save", async function (next) {
     next();
   });
 });
+
+// Password verification
+UserAccountSchema.methods.isValidPassword = async function (
+  candidatePassword: string
+) {
+  const user = this;
+  const match = await bcrypt.compare(candidatePassword, user.password);
+};
 
 const UserAccount = mongoose.model("UserAccount", UserAccountSchema);
 
