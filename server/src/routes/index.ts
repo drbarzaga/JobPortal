@@ -13,6 +13,10 @@ export default class Routes {
     app.use("/api/v1/users", new UsersRoutes().router);
     app.use("/api/v1/job", new JobApplicationsRoutes().router);
 
+    app.get("/", (req: Request, res: Response) => {
+      res.status(StatusCodes.OK).send(`⚡️[Server]: Server is running!`);
+    });
+
     app.get("/health", (req: Request, res: Response) => {
       res.status(StatusCodes.OK).send(`⚡️[Server]: Server is running!`);
     });
