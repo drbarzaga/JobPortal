@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { ApiError } from "../helpers/api-error";
+import { ApiError } from "../errors/ApiError";
 
 export const errorMiddleware = (
   err: ApiError,
@@ -13,4 +13,5 @@ export const errorMiddleware = (
     message: err.message,
     stack: process.env.NODE_ENV === "production" ? "🥞" : err.stack,
   });
+  next();
 };

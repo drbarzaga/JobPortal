@@ -1,10 +1,12 @@
 import passport from "passport";
 import jwt from "jsonwebtoken";
 import { Request, Response, NextFunction } from "express";
-import { ApiError } from "../helpers/api-error";
 import { StatusCodes } from "http-status-codes";
 import UserAccount from "../models/user/user-account.model";
 import UserType from "../models/user/user-type.model";
+import { ApiError } from "../errors/ApiError";
+import { BadRequestError } from "../errors/BadRequestError";
+// import { BadRequestError } from "../errors/BadRequestError";
 
 /**
  * AuthController
@@ -61,11 +63,20 @@ export default class AuthController {
 
       // If user type is not found, throw an error
       if (!userType) {
-        const error = new ApiError(
-          StatusCodes.BAD_REQUEST,
-          "User account type not found"
+        throw new BadRequestError(
+          `User type not found with user_type_name provided`,
+          []
         );
-        throw error;
+      }
+
+      // Check don't exist user account with the email address provided
+      const existingUser = await UserAccount.findOne({
+        email: payload.email,
+      });
+
+      // If user account exists, throw an error
+      if (existingUser) {
+        throw new BadRequestError("User account already exists", []);
       }
 
       // Create a new user account with the user type id and other details

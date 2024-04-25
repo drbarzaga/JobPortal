@@ -29,11 +29,11 @@ class Application {
     this.server.use(cors());
     this.server.use(express.json());
     this.server.use(express.urlencoded({ extended: true }));
-    this.server.use(errorMiddleware);
   }
 
   private routes() {
     new Routes(this.server);
+    this.server.use(errorMiddleware);
   }
 
   private initDirectories() {
