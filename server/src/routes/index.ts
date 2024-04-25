@@ -2,9 +2,9 @@ import { Application, Request, Response, NextFunction } from "express";
 import UsersRoutes from "./users.routes";
 import JobsRoutes from "./jobs.routes";
 import JobApplicationsRoutes from "./job-applications.routers";
-import { ApiError } from "../helpers/api-error";
 import AuthRoutes from "./auth.routes";
 import { StatusCodes } from "http-status-codes";
+import { ApiError } from "../errors/ApiError";
 
 export default class Routes {
   constructor(app: Application) {
