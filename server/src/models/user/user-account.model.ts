@@ -1,5 +1,6 @@
 import bcrypt from "bcrypt";
 import mongoose from "mongoose";
+import jwt from "jsonwebtoken";
 
 // This is the schema for the user_account collection
 const UserAccountSchema = new mongoose.Schema(
@@ -73,27 +74,44 @@ UserAccountSchema.pre("save", function (next) {
 });
 
 // Password hashing
-UserAccountSchema.pre("save", async function (next) {
-  let user = this;
+UserAccountSchema.pre("save", function (next) {
+  const user = this;
 
   if (!user.isModified("password")) return next();
 
-  // Hash the password
-  bcrypt.hash(user.password, 10, (err: any, hash: any) => {
-    if (err) {
-      return next(err);
-    }
-    user.password = hash;
-    next();
+  bcrypt.genSalt(10, function (err, salt) {
+    if (err) return next(err);
+
+    bcrypt.hash(user.password, salt, function (err, hash) {
+      if (err) return next(err);
+
+      user.password = hash;
+      next();
+    });
   });
 });
 
-// Password verification
-UserAccountSchema.methods.isValidPassword = async function (
-  candidatePassword: string
-) {
-  const user = this;
-  const match = await bcrypt.compare(candidatePassword, user.password);
+// Password comparison
+UserAccountSchema.methods.comparePassword = function (password: string) {
+  return bcrypt.compareSync(password, this.password);
+};
+
+// Generate JWT token
+UserAccountSchema.methods.generateJWT = function () {
+  // Set the expiration date to 60 days
+  const today = new Date();
+  const expirationDate = new Date(today);
+  expirationDate.setDate(today.getDate() + 60);
+
+  const payload = {
+    id: this._id,
+    email: this.email,
+  };
+
+  const jwtSecret = process.env.JWT_SECRET || "jwt_secret";
+  return jwt.sign(payload, jwtSecret, {
+    expiresIn: parseInt((expirationDate.getTime() / 1000).toString(), 10),
+  });
 };
 
 const UserAccount = mongoose.model("UserAccount", UserAccountSchema);
