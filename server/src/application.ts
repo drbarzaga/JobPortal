@@ -7,7 +7,7 @@ import mongoose from "mongoose";
 import Routes from "./routes";
 import Seeders from "./seeders";
 import { errorMiddleware } from "./middlewares/error.middleware";
-import "./helpers/auth-strategies";
+import passport from "passport";
 class Application {
   public server;
 
@@ -17,6 +17,7 @@ class Application {
     this.environment();
     this.database();
     this.middlewares();
+    this.passport();
     this.routes();
     this.initDirectories();
   }
@@ -65,6 +66,11 @@ class Application {
       .catch((error) => {
         console.log(`❌[Server] Database connection error: ${error}`);
       });
+  }
+
+  private passport() {
+    this.server.use(passport.initialize());
+    require("./middlewares/jwt.middleware")(passport);
   }
 
   public start() {
