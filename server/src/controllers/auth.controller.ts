@@ -1,12 +1,9 @@
-import passport from "passport";
-import jwt from "jsonwebtoken";
 import { Request, Response, NextFunction } from "express";
 import { StatusCodes } from "http-status-codes";
 import UserAccount from "../models/user/user-account.model";
 import UserType from "../models/user/user-type.model";
-import { ApiError } from "../errors/ApiError";
 import { BadRequestError } from "../errors/BadRequestError";
-// import { BadRequestError } from "../errors/BadRequestError";
+import { ApiError } from "../errors/ApiError";
 
 /**
  * AuthController
@@ -23,27 +20,36 @@ export default class AuthController {
    * @param res Response
    */
   public static async login(req: Request, res: Response, next: NextFunction) {
-    // TODO: Not implemented yet
-    // res.status(200).send(`⚡️[Server]: AuthController login!`);
-    passport.authenticate("login", async (err: any, user: any, info: any) => {
-      try {
-        if (err || !user) {
-          const error = new ApiError(StatusCodes.UNAUTHORIZED, "Unauthorized");
-          return next(error);
-        }
+    try {
+      const { email, password } = req.body;
+      const user = await UserAccount.findOne({ email: email });
 
-        req.login(user, { session: false }, async (error) => {
-          if (error) return next(error);
-
-          const body = { _id: user._id, email: user.email };
-          const token = jwt.sign({ user: body }, process.env.JWT_SECRET || "");
-
-          return res.json({ token });
-        });
-      } catch (error) {
-        return next(error);
+      // If user account is not found, throw an error
+      if (!user) {
+        throw new ApiError(
+          StatusCodes.UNAUTHORIZED,
+          "User account not found",
+          []
+        );
       }
-    })(req, res, next);
+
+      // If user account is found, compare the password
+      if (!(user as any).comparePassword(password)) {
+        throw new ApiError(
+          StatusCodes.UNAUTHORIZED,
+          "Invalid email or password",
+          []
+        );
+      }
+
+      // Send a response with the user account details
+      res.status(StatusCodes.OK).json({
+        user: user,
+        token: (user as any).generateJWT(),
+      });
+    } catch (error) {
+      throw error;
+    }
   }
 
   /**
@@ -69,7 +75,7 @@ export default class AuthController {
         );
       }
 
-      // Check don't exist user account with the email address provided
+      // Check if user account exists
       const existingUser = await UserAccount.findOne({
         email: payload.email,
       });
@@ -92,8 +98,18 @@ export default class AuthController {
       // Send a response with the user account details
       res.status(StatusCodes.CREATED).json({
         message: "User account created successfully",
-        data: userAccount,
+        user: userAccount,
+        token: (userAccount as any).generateJWT(),
       });
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  // Test Authentication with protected route /me
+  public static async me(req: Request, res: Response, next: NextFunction) {
+    try {
+      res.status(StatusCodes.OK).json(req.user);
     } catch (error) {
       throw error;
     }
