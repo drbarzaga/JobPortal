@@ -10,7 +10,7 @@
   <a href="https://www.jobportal.io"></a>
 </div>
 
-## Features ✅
+## Features
 
 - People can register as job seekers, build their profiles, and look for jobs matching their skill sets.
 - Users can upload their existing resumes. If they do not have one, they should be able to fill out a form and have a resume built for them.
@@ -20,7 +20,7 @@
 - Company representatives can view a list of job applicants and can contact them, initiative an interview, or perform some other action related to their post.
 - Registered users should be able to search for jobs and filter the results based on location, required skills, salary, experience level, etc
 
-## Screenshots 📸
+## What will we developing?
 
 <img width="1512" alt="image" src="https://github.com/drbarzaga/JobPortal/assets/12173976/99bbf7cb-383a-4f4d-b0f6-9985bcc60dfb">
 
@@ -28,8 +28,7 @@
 
 <img width="1512" alt="image" src="https://github.com/drbarzaga/job-portal/assets/12173976/f83f4a80-fd5f-49f5-b519-f6bb4f9260e5">
 
-
-## Tech Stack 🛠️
+## Tech Stack
 
 - [React](https://react.dev/) - Frontend UI Library
 - [Vite](https://vitejs.dev/) - Frontend Tooling
@@ -38,8 +37,10 @@
 - [Tailwind](https://tailwindcss.com/) – CSS
 - [MongoDB](https://www.mongodb.com/) - Database
 - [Mogoose](https://mongoosejs.com/) - Database ODM
+- [Axios](https://axios-http.com/) - Promise based Http Client
+- [Formik](https://formik.org/) - Form handler
 
-## Getting Started 🚀
+## Getting Started
 
 ### Prerequisites
 
@@ -56,6 +57,16 @@ cd job-portal
 ```
 
 ### 2. Environment
+
+#### Client Environment
+
+You need to create a `.env` file inside the `client` folder, and define the following env variables there:
+
+```shell
+VITE_API_URL=http://localhost:5555/api/v1
+```
+
+#### Server Environment
 
 You need to create a `.env` file inside the `server` folder, and define the following env variables there:
 
@@ -85,19 +96,14 @@ npm run dev
 
 Visit [http://localhost:5137](http://localhost:5137) in your browser.
 
-## Contributing 👨‍💻
+## Contributing
 
 Job Portal is an open-source project and we welcome contributions from the community.
 
 If you'd like to contribute, please fork the repository and make changes as you'd like. Pull requests are warmly welcome.
 
-## Contributors 🤙
+### Our Contributors ✨
 
 <a href="https://github.com/drbarzaga/job-portal/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=drbarzaga/job-portal" />
 </a>
-
-## Support 🤝
-
-Thank you for contributing to our open-source project! We appreciate your support 🙏
-Don't forget to leave a star ⭐
