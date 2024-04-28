@@ -32,6 +32,7 @@
     "@types/passport": "^1.0.16",
     "@types/passport-jwt": "^4.0.1",
     "@types/passport-local": "^1.0.38",
+    "@types/validator": "^13.11.9",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5"
   }
