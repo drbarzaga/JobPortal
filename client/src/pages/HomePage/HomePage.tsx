@@ -6,7 +6,7 @@ import {
   ShareIcon,
 } from "@heroicons/react/24/outline";
 import PrivateLayout from "../../components/layouts/private";
-import Divider from "../../components/ui/Divider";
+import Divider from "@/components/core-ui/Divider";
 
 const jobs = [
   {

@@ -39,6 +39,7 @@
 - [Mogoose](https://mongoosejs.com/) - Database ODM
 - [Axios](https://axios-http.com/) - Promise based Http Client
 - [Formik](https://formik.org/) - Form handler
+- [Zustand](https://zustand-demo.pmnd.rs/) - State Management
 
 ## Getting Started
 
