@@ -1,11 +1,10 @@
+import PublicLayout from "@/components/layouts/public/PublicLayout";
+import LoginForm from "@/forms/auth/LoginForm";
 import { Link } from "react-router-dom";
 
-import PublicLayout from "@/components/layouts/public/PublicLayout";
-import RegisterForm from "@/forms/auth/RegisterForm";
-
-const Register = () => {
+const LoginPage = () => {
   return (
-    <PublicLayout title="Sign up">
+    <PublicLayout title="Sign in">
       <div className="mx-auto w-full max-w-sm lg:w-96">
         <div>
           <img
@@ -14,21 +13,21 @@ const Register = () => {
             alt="Your Company"
           />
           <h2 className="mt-8 text-2xl font-bold leading-9 tracking-tight text-gray-900">
-            Sign up for an account
+            Sign in to your account
           </h2>
           <p className="mt-2 text-sm leading-6 text-gray-500">
-            Already have an account?{" "}
+            Not a member?{" "}
             <Link
-              to="/login"
+              to="/register"
               className="font-semibold text-indigo-600 hover:text-indigo-500"
             >
-              Sign in
+              Register now
             </Link>
           </p>
         </div>
 
         <div className="mt-10">
-          <RegisterForm />
+          <LoginForm />
 
           {/* <div className="mt-10">
           <div className="relative">
@@ -97,4 +96,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default LoginPage;

@@ -8,10 +8,21 @@ const FORM_INITIAL_VALUES = {
   email: "",
   password: "",
   confirmPassword: "",
+  termsConditions: false,
 };
 
 const useRegisterForm = () => {
-  const { register } = useAuthStore((state) => ({
+  const {
+    registerStatus,
+    registerMessage,
+    termsConditionsModalOpen,
+    setTermsConditionsModalOpen,
+    register,
+  } = useAuthStore((state) => ({
+    registerStatus: state.registerStatus,
+    registerMessage: state.registerMessage,
+    termsConditionsModalOpen: state.termsConditionsModalOpen,
+    setTermsConditionsModalOpen: state.setTermsConditionsModalOpen,
     register: state.register,
   }));
 
@@ -26,6 +37,10 @@ const useRegisterForm = () => {
     confirmPassword: Yup.string()
       .required("Confirm password is required")
       .oneOf([Yup.ref("password")], "Passwords must match"),
+    termsConditions: Yup.boolean().oneOf(
+      [true],
+      "You must accept the terms and conditions"
+    ),
   });
 
   const form = useFormik({
@@ -39,8 +54,8 @@ const useRegisterForm = () => {
           email: values.email,
           password: values.password,
         };
-        const response = await register(payload);
-        console.log(response);
+        await register(payload);
+        form.resetForm();
       } catch (error) {
         console.error(error);
       } finally {
@@ -49,7 +64,22 @@ const useRegisterForm = () => {
     },
   });
 
-  return { form };
+  const handleOnOpenTermsConditionsModal = () => {
+    setTermsConditionsModalOpen(true);
+  };
+
+  const handleOnCloseTermsConditionsModal = () => {
+    setTermsConditionsModalOpen(false);
+  };
+
+  return {
+    form,
+    registerStatus,
+    registerMessage,
+    termsConditionsModalOpen,
+    handleOnOpenTermsConditionsModal,
+    handleOnCloseTermsConditionsModal,
+  };
 };
 
 export default useRegisterForm;
