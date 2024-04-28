@@ -6,7 +6,7 @@ export default class RequestValidator {
   static validate = <T extends object>(classInstance: ClassConstructor<T>) => {
     return async (req: Request, res: Response, next: NextFunction) => {
       const convertedObject = plainToInstance(classInstance, req.body);
-      await validate(convertedObject).then((errors) => {
+      await validate(convertedObject).then((errors: any) => {
         if (errors.length > 0) {
           let rawErrors: string[] = [];
           for (const error of errors) {
