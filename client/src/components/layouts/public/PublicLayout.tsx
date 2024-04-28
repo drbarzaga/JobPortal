@@ -1,5 +1,5 @@
+import usePageTitle from "@/hooks/usePageTitle";
 import { FC } from "react";
-import usePageTitle from "../../../hooks/usePageTitle";
 
 type Props = {
   title?: string;

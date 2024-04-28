@@ -1,7 +1,7 @@
+import usePageTitle from "@/hooks/usePageTitle";
 import { FC } from "react";
-import Footer from "./components/Footer";
 import Header from "./components/Header";
-import usePageTitle from "../../../hooks/usePageTitle";
+import Footer from "./components/Footer";
 
 type Props = {
   title?: string;
