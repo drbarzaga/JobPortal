@@ -28,7 +28,6 @@
 
 <img width="1512" alt="image" src="https://github.com/drbarzaga/job-portal/assets/12173976/f83f4a80-fd5f-49f5-b519-f6bb4f9260e5">
 
-
 ## Tech Stack
 
 - [React](https://react.dev/) - Frontend UI Library
@@ -38,6 +37,8 @@
 - [Tailwind](https://tailwindcss.com/) – CSS
 - [MongoDB](https://www.mongodb.com/) - Database
 - [Mogoose](https://mongoosejs.com/) - Database ODM
+- [Axios](https://axios-http.com/) - Promise based Http Client
+- [Formik](https://formik.org/) - Form handler
 
 ## Getting Started
 
@@ -56,6 +57,16 @@ cd job-portal
 ```
 
 ### 2. Environment
+
+#### Client Environment
+
+You need to create a `.env` file inside the `client` folder, and define the following env variables there:
+
+```shell
+VITE_API_URL=http://localhost:5555/api/v1
+```
+
+#### Server Environment
 
 You need to create a `.env` file inside the `server` folder, and define the following env variables there:
 
