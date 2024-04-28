@@ -7,7 +7,8 @@
     "install:all": "npm run install:server && npm run install:client",
     "install:server": "cd server && npm install && cd ..",
     "install:client": "cd client && npm install && cd ..",
-    "dev": "concurrently \"cd server && npm start\" \"cd client && npm run dev\""
+    "dev": "concurrently \"cd server && npm start\" \"cd client && npm run dev\"",
+    "build": "cd client && npm run build && cd .. && cd server && npm run build"
   },
   "keywords": [],
   "author": "",
