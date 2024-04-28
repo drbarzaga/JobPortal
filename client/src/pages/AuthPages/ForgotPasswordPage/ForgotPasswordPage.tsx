@@ -2,7 +2,7 @@ import PublicLayout from "@/components/layouts/public/PublicLayout";
 import ForgotPasswordForm from "@/forms/auth/ForgotPasswordForm";
 import { Link } from "react-router-dom";
 
-const ForgotPassword = () => {
+const ForgotPasswordPage = () => {
   return (
     <PublicLayout title="Sign in">
       <div className="mx-auto w-full max-w-sm lg:w-96">
@@ -36,4 +36,4 @@ const ForgotPassword = () => {
   );
 };
 
-export default ForgotPassword;
+export default ForgotPasswordPage;

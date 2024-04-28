@@ -4,10 +4,10 @@ import HomePage from "@/pages/HomePage";
 import { AuthProvider } from "@/providers";
 import { Route, Routes } from "react-router-dom";
 
-const LoginPage = lazy(() => import("@/pages/AuthPages/Login"));
-const RegisterPage = lazy(() => import("@/pages/AuthPages/Register"));
+const LoginPage = lazy(() => import("@/pages/AuthPages/LoginPage"));
+const RegisterPage = lazy(() => import("@/pages/AuthPages/RegisterPage"));
 const ForgotPasswordPage = lazy(
-  () => import("@/pages/AuthPages/ForgotPassword")
+  () => import("@/pages/AuthPages/ForgotPasswordPage")
 );
 
 function App() {
