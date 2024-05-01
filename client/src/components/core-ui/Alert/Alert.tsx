@@ -3,7 +3,7 @@ import {
   ExclamationTriangleIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 
 type Props = {
   message: string;
@@ -12,16 +12,6 @@ type Props = {
 
 const Alert: FC<Props> = ({ message, type }) => {
   const [show, setShow] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShow(false);
-    }, 2000);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, []);
 
   const getAlertColor = () => {
     switch (type) {
