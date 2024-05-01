@@ -1,6 +1,7 @@
 import { IRegisterPayload } from "@/interfaces/models";
 import useAuthStore from "@/stores/auth.store";
 import { useFormik } from "formik";
+import { useEffect } from "react";
 import * as Yup from "yup";
 
 const FORM_INITIAL_VALUES = {
@@ -46,6 +47,7 @@ const useRegisterForm = () => {
   const form = useFormik({
     initialValues: FORM_INITIAL_VALUES,
     validationSchema: validationSchema,
+    validateOnChange: false,
     onSubmit: async (values, { setSubmitting }) => {
       try {
         setSubmitting(true);
