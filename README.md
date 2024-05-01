@@ -20,13 +20,15 @@
 - Company representatives can view a list of job applicants and can contact them, initiative an interview, or perform some other action related to their post.
 - Registered users should be able to search for jobs and filter the results based on location, required skills, salary, experience level, etc
 
-## What will we developing?
+## Screenshots
 
-<img width="1512" alt="image" src="https://github.com/drbarzaga/JobPortal/assets/12173976/99bbf7cb-383a-4f4d-b0f6-9985bcc60dfb">
+<img width="1512" alt="image" src="https://github.com/drbarzaga/JobPortal/assets/12173976/6d92db8e-d423-4667-adff-206aa6837c87">
 
-<img width="1512" alt="image" src="https://github.com/drbarzaga/JobPortal/assets/12173976/27b31105-8a50-492c-a930-75476e4d8735">
+<img width="1512" alt="image" src="https://github.com/drbarzaga/JobPortal/assets/12173976/94ed6f7d-953b-41ae-99ec-b65f83dab8bd">
 
-<img width="1512" alt="image" src="https://github.com/drbarzaga/job-portal/assets/12173976/f83f4a80-fd5f-49f5-b519-f6bb4f9260e5">
+<img width="1512" alt="image" src="https://github.com/drbarzaga/JobPortal/assets/12173976/91ada9b1-cde7-46f7-a072-b0bb8321a64f">
+
+<img width="1512" alt="image" src="https://github.com/drbarzaga/JobPortal/assets/12173976/11e3338b-692a-4914-a8ee-d1af804f7b75">
 
 ## Tech Stack
 

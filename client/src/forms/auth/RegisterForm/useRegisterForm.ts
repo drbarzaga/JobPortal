@@ -46,6 +46,7 @@ const useRegisterForm = () => {
   const form = useFormik({
     initialValues: FORM_INITIAL_VALUES,
     validationSchema: validationSchema,
+    validateOnChange: false,
     onSubmit: async (values, { setSubmitting }) => {
       try {
         setSubmitting(true);

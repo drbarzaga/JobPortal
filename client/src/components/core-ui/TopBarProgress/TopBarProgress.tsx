@@ -10,6 +10,8 @@ const TopBarProgress = () => {
     loadingBarRef.current.continuousStart();
 
     return () => {
+      if (!loadingBarRef.current) return;
+
       loadingBarRef.current.complete();
     };
   }, []);
