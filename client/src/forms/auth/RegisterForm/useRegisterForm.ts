@@ -1,7 +1,6 @@
 import { IRegisterPayload } from "@/interfaces/models";
 import useAuthStore from "@/stores/auth.store";
 import { useFormik } from "formik";
-import { useEffect } from "react";
 import * as Yup from "yup";
 
 const FORM_INITIAL_VALUES = {
