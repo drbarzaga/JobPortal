@@ -16,13 +16,17 @@ function App() {
       <Routes>
         <Route element={<AppWrapper />}>
           {/* Public routes */}
+          <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/forgot-password" element={<ForgotPasswordPage />} />
 
           {/* Private route using PrivateRoute component */}
           <Route path="/" element={<PrivateRoute />}>
-            <Route path="/" element={<HomePage />} />
+            {/* <Route path="/" element={<HomePage />} /> */}
+            <Route path="/my-jobs" element={<div>My Jobs</div>} />
+            <Route path="/saved-jobs" element={<div>Saved Jobs</div>} />
+            <Route path="/messages" element={<div>Messages</div>} />
           </Route>
 
           {/* 404 route */}
