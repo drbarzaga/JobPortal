@@ -19,7 +19,7 @@ import Logo from "@/components/core-ui/Logo";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, logout } = useAuth();
 
   const navigation = useMemo(() => {
     if (isAuthenticated) {
@@ -143,6 +143,7 @@ const Header = () => {
                               ? "bg-indigo-500 text-white"
                               : "text-gray-900"
                           } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                          onClick={logout}
                         >
                           {active ? (
                             <ArrowLeftStartOnRectangleIcon className="h-5 w-5 mr-2" />

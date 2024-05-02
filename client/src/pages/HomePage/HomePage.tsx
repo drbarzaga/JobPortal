@@ -367,8 +367,10 @@ const HomePage = () => {
                 {/* Salary & Time */}
                 <div className="flex items-center gap-x-2 mt-2 justify-between">
                   <div className="flex items-center gap-x-2">
-                    <CurrencyDollarIcon className="h-6 w-6 text-gray-500" />
-                    <span className="text-sm text-gray-500">{job.salary}</span>
+                    <CurrencyDollarIcon className="h-6 w-6 text-indigo-600" />
+                    <span className="text-sm text-gray-500 fs-7">
+                      {job.salary}
+                    </span>
                   </div>
                   <span className="text-sm text-gray-400">{job.time}</span>
                 </div>
