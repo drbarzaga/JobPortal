@@ -8,7 +8,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-const PrivateLayout: FC<Props> = ({ title, children }) => {
+const PortalLayout: FC<Props> = ({ title, children }) => {
   usePageTitle(title);
 
   return (
@@ -24,4 +24,4 @@ const PrivateLayout: FC<Props> = ({ title, children }) => {
   );
 };
 
-export default PrivateLayout;
+export default PortalLayout;

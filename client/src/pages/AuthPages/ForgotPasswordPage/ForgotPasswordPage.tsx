@@ -1,3 +1,4 @@
+import Logo from "@/components/core-ui/Logo";
 import PublicLayout from "@/components/layouts/public/PublicLayout";
 import ForgotPasswordForm from "@/forms/auth/ForgotPasswordForm";
 import { Link } from "react-router-dom";
@@ -7,12 +8,8 @@ const ForgotPasswordPage = () => {
     <PublicLayout title="Sign in">
       <div className="mx-auto w-full max-w-sm lg:w-96">
         <div>
-          <img
-            className="h-10 w-auto"
-            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-            alt="Your Company"
-          />
-          <h2 className="mt-8 text-2xl font-bold leading-9 tracking-tight text-gray-900">
+          <Logo />
+          <h2 className="text-2xl font-bold leading-9 tracking-tight text-gray-900">
             Forgot your password?
           </h2>
           <p className="mt-2 text-sm leading-6 text-gray-500">

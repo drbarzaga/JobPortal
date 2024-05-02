@@ -5,8 +5,8 @@ import {
   MagnifyingGlassIcon,
   ShareIcon,
 } from "@heroicons/react/24/outline";
-import PrivateLayout from "../../components/layouts/private";
 import Divider from "@/components/core-ui/Divider";
+import PortalLayout from "@/components/layouts/portal/PortalLayout";
 
 const jobs = [
   {
@@ -94,7 +94,7 @@ const jobs = [
 
 const HomePage = () => {
   return (
-    <PrivateLayout title="Home">
+    <PortalLayout title="Home">
       <aside className="sticky top-24 hidden w-80 shrink-0 xl:block">
         <div className="overflow-hidden rounded-lg bg-white shadow">
           <div className="px-4 py-5 sm:p-6">
@@ -503,7 +503,7 @@ const HomePage = () => {
           </div>
         </div>
       </aside>
-    </PrivateLayout>
+    </PortalLayout>
   );
 };
 
