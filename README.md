@@ -22,14 +22,17 @@
 
 ## Screenshots
 
-<img width="1512" alt="image" src="https://github.com/drbarzaga/JobPortal/assets/12173976/6d92db8e-d423-4667-adff-206aa6837c87">
+#### Sign In
+<img width="1512" alt="image" src="https://github.com/drbarzaga/JobPortal/assets/12173976/676ddd8e-f9bb-4fc1-810f-fcde07817348">
 
-<img width="1512" alt="image" src="https://github.com/drbarzaga/JobPortal/assets/12173976/94ed6f7d-953b-41ae-99ec-b65f83dab8bd">
+#### Sign Up
+<img width="1512" alt="image" src="https://github.com/drbarzaga/JobPortal/assets/12173976/818dc01f-7915-42da-914c-2b011bcbfa60">
 
-<img width="1512" alt="image" src="https://github.com/drbarzaga/JobPortal/assets/12173976/91ada9b1-cde7-46f7-a072-b0bb8321a64f">
+#### Forgot Password
+<img width="1512" alt="image" src="https://github.com/drbarzaga/JobPortal/assets/12173976/362e5330-e25b-4591-a1f1-20c87a7d4836">
 
-<img width="1512" alt="image" src="https://github.com/drbarzaga/JobPortal/assets/12173976/11e3338b-692a-4914-a8ee-d1af804f7b75">
-
+#### Home Page as Guest
+<img width="1512" alt="image" src="https://github.com/drbarzaga/JobPortal/assets/12173976/42526467-2b0a-4138-b0aa-f546d4735004">
 ## Tech Stack
 
 - [React](https://react.dev/) - Frontend UI Library

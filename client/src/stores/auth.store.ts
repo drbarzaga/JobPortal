@@ -31,7 +31,7 @@ const useAuthStore = create<IStores.IAuthStore>((set) => ({
       const authService = new AuthService();
       const response = await authService.login(payload, options);
       set({ isLogging: false });
-      console.log(response);
+      return response;
     } catch (error) {
       console.error(error);
       set({ isLogging: false });
