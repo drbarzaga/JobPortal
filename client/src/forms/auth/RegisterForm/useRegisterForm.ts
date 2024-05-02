@@ -33,7 +33,10 @@ const useRegisterForm = () => {
     email: Yup.string()
       .required("Email is required")
       .email("Invalid email address"),
-    password: Yup.string().required("Password is required"),
+    password: Yup.string()
+      .required("Password is required")
+      .min(8, "Password must be at least 8 characters")
+      .max(20, "Password must be at most 20 characters"),
     confirmPassword: Yup.string()
       .required("Confirm password is required")
       .oneOf([Yup.ref("password")], "Passwords must match"),
