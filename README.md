@@ -95,10 +95,18 @@ docker-compose up
 ```
 
 ### 3. Running locally
-
+Using npm
 ```bash
+npm install
 npm run install:all
 npm run dev
+```
+
+Using yarn
+```bash
+yarn install
+yarn run install:all
+yarn run dev
 ```
 
 > If you're going to run the application locally, make sure you have MongoDB installed on your computer and add the `MONGO_URL` environment variable to the server's `.env` file.
