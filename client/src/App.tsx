@@ -1,38 +1,47 @@
 import { lazy } from "react";
-import { PrivateRoute } from "@/components/routers";
 import HomePage from "@/pages/HomePage";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import AppWrapper from "./AppWrapper";
+import { useAuth } from "./providers";
 
 const LoginPage = lazy(() => import("@/pages/AuthPages/LoginPage"));
 const RegisterPage = lazy(() => import("@/pages/AuthPages/RegisterPage"));
 const ForgotPasswordPage = lazy(
   () => import("@/pages/AuthPages/ForgotPasswordPage")
 );
+const MyJobsPage = lazy(() => import("@/pages/MyJobsPage"));
+const SavedJobsPage = lazy(() => import("@/pages/SavedJobsPage"));
+const MessagesPage = lazy(() => import("@/pages/MessagesPage"));
+const ProfilePage = lazy(() => import("@/pages/ProfilePage"));
 
 function App() {
+  const { isAuthenticated } = useAuth();
   return (
     <BrowserRouter>
-      <Routes>
-        <Route element={<AppWrapper />}>
-          {/* Public routes */}
-          <Route path="/" element={<HomePage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/forgot-password" element={<ForgotPasswordPage />} />
-
-          {/* Private route using PrivateRoute component */}
-          <Route path="/" element={<PrivateRoute />}>
-            {/* <Route path="/" element={<HomePage />} /> */}
-            <Route path="/my-jobs" element={<div>My Jobs</div>} />
-            <Route path="/saved-jobs" element={<div>Saved Jobs</div>} />
-            <Route path="/messages" element={<div>Messages</div>} />
+      {isAuthenticated ? (
+        <Routes>
+          <Route path="/" element={<AppWrapper />}>
+            <Route index element={<HomePage />} />
+            <Route path="/my-jobs" element={<MyJobsPage />} />
+            <Route path="/saved-jobs" element={<SavedJobsPage />} />
+            <Route path="/messages" element={<MessagesPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/login" element={<Navigate to="/" />} />
+            <Route path="/register" element={<Navigate to="/" />} />
+            <Route path="/forgot-password" element={<Navigate to="/" />} />
           </Route>
-
-          {/* 404 route */}
-          <Route path="*" element={<div>Not found page!</div>} />
-        </Route>
-      </Routes>
+        </Routes>
+      ) : (
+        <Routes>
+          <Route path="/" element={<AppWrapper />}>
+            <Route index element={<HomePage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+            <Route path="*" element={<Navigate to="/login" />} />
+          </Route>
+        </Routes>
+      )}
     </BrowserRouter>
   );
 }

@@ -80,7 +80,15 @@ const Footer = () => {
         </div>
         <div className="mt-8 md:order-1 md:mt-0">
           <p className="text-center text-xs leading-5 text-gray-500">
-            &copy; {new Date().getFullYear()} Job Portal. All rights reserved.
+            &copy; {new Date().getFullYear()} Job Portal. Made with ❤️ by all
+            the{" "}
+            <a
+              href="https://github.com/drbarzaga/JobPortal?tab=readme-ov-file#our-contributors-"
+              className="font-semibold text-indigo-600 hover:text-gray-900"
+              target="_blank"
+            >
+              Contributors
+            </a>
           </p>
         </div>
       </div>

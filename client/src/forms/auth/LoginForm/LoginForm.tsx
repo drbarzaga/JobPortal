@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import useLoginForm from "./useLoginForm";
+import FieldError from "@/components/core-ui/FieldError";
 
 const LoginForm = () => {
   const { form } = useLoginForm();
@@ -26,6 +27,7 @@ const LoginForm = () => {
             value={form.values.email}
             onChange={form.handleChange}
           />
+          {form.errors.email && <FieldError error={form.errors.email} />}
         </div>
       </div>
 
@@ -49,6 +51,7 @@ const LoginForm = () => {
             value={form.values.password}
             onChange={form.handleChange}
           />
+          {form.errors.password && <FieldError error={form.errors.password} />}
         </div>
       </div>
 

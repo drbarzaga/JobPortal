@@ -15,7 +15,7 @@ const PortalLayout: FC<Props> = ({ title, children }) => {
     <div className="flex flex-col bg-gray-50">
       <Header />
 
-      <div className="mx-auto flex w-full items-start gap-x-8 px-4 py-10 sm:px-6 lg:px-8">
+      <div className="mx-auto flex w-full items-start gap-x-8 px-4 py-10 sm:px-6 lg:px-8 h-full">
         {children}
       </div>
 
