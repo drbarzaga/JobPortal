@@ -3,6 +3,7 @@ import AuthController from "../controllers/auth.controller";
 import { asyncWrapper } from "../helpers/async-wrapper";
 import RequestValidator from "../validators/RequestValidator";
 import { RegisterUserAccountRequest } from "../requests/RegisterUserAccountRequest";
+import passport from "passport";
 
 export default class AuthRoutes {
   public router: Router;
@@ -18,6 +19,11 @@ export default class AuthRoutes {
       "/signup",
       RequestValidator.validate(RegisterUserAccountRequest),
       asyncWrapper(AuthController.signup)
+    );
+    this.router.get(
+      "/me",
+      passport.authenticate("jwt", { session: false }),
+      asyncWrapper(AuthController.me)
     );
   }
 }

@@ -56,6 +56,7 @@ export default class AuthController {
    * This method is used to register a user
    * @param req Request
    * @param res Response
+   * @param next NextFunction
    */
   public static async signup(req: Request, res: Response, next: NextFunction) {
     try {
@@ -99,17 +100,27 @@ export default class AuthController {
       res.status(StatusCodes.CREATED).json({
         message: "User account created successfully",
         user: userAccount,
-        token: (userAccount as any).generateJWT(),
       });
     } catch (error) {
       throw error;
     }
   }
 
-  // Test Authentication with protected route /me
+  /**
+   * This method is used to get the current user
+   * @param req Request
+   * @param res Response
+   * @param next NextFunction
+   */
   public static async me(req: Request, res: Response, next: NextFunction) {
     try {
-      res.status(StatusCodes.OK).json(req.user);
+      // Get the user account from the request object
+      const user = req.user;
+
+      // Send a response with the user account details
+      res.status(StatusCodes.OK).json({
+        user: user,
+      });
     } catch (error) {
       throw error;
     }

@@ -5,12 +5,11 @@ import {
   XMarkIcon,
   HomeIcon,
   BriefcaseIcon,
-  DocumentTextIcon,
-  BookmarkIcon,
   ChatBubbleLeftRightIcon,
   UserIcon,
   Cog8ToothIcon,
   ArrowLeftStartOnRectangleIcon,
+  BookmarkIcon,
 } from "@heroicons/react/24/outline";
 import { Dialog, Menu, Transition } from "@headlessui/react";
 import { useAuth } from "@/providers";
@@ -24,11 +23,10 @@ const Header = () => {
   const navigation = useMemo(() => {
     if (isAuthenticated) {
       return [
-        { name: "Home", href: "#", icon: HomeIcon },
-        { name: "Find Jobs", href: "#", icon: BriefcaseIcon },
-        { name: "My Jobs", href: "#", icon: DocumentTextIcon },
-        { name: "Saved Jobs", href: "#", icon: BookmarkIcon },
-        { name: "Messages", href: "#", icon: ChatBubbleLeftRightIcon },
+        { name: "Home", href: "/", icon: HomeIcon },
+        { name: "My Jobs", href: "/my-jobs", icon: BriefcaseIcon },
+        { name: "Saved Jobs", href: "/saved-jobs", icon: BookmarkIcon },
+        { name: "Messages", href: "/messages", icon: ChatBubbleLeftRightIcon },
       ];
     }
 
@@ -56,14 +54,18 @@ const Header = () => {
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
           {navigation.map((item) => (
-            <a
+            <Link
               key={item.name}
-              href={item.href}
-              className="text-sm font-semibold leading-6 text-gray-900 flex items-center gap-x-2"
+              to={item.href}
+              className={`text-sm font-semibold leading-6 text-gray-900 flex items-center gap-x-2 ${
+                window.location.pathname === item.href
+                  ? "text-indigo-600"
+                  : "hover:text-indigo-600"
+              }`}
             >
               {item.icon && <item.icon className="h-6 w-6" />}
               {item.name}
-            </a>
+            </Link>
           ))}
         </div>
         {isAuthenticated ? (
@@ -191,14 +193,10 @@ const Header = () => {
         <div className="fixed inset-0 z-10" />
         <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
-            <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
-              <img
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                alt=""
-              />
-            </a>
+            <div className="-m-1.5 p-1.5">
+              <span className="sr-only">JobPortal</span>
+              <Logo />
+            </div>
             <button
               type="button"
               className="-m-2.5 rounded-md p-2.5 text-gray-700"
@@ -210,24 +208,60 @@ const Header = () => {
           </div>
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
-              <div className="space-y-2 py-6">
+              <div className="">
                 {navigation.map((item) => (
-                  <a
+                  <Link
                     key={item.name}
-                    href={item.href}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    to={item.href}
+                    className={`-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 ${
+                      window.location.pathname === item.href
+                        ? "text-indigo-600"
+                        : ""
+                    }`}
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 ))}
               </div>
               <div className="py-6">
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Log in
-                </a>
+                {!isAuthenticated ? (
+                  <>
+                    <Link
+                      to="/login"
+                      className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    >
+                      Log in
+                    </Link>
+                    <Link
+                      to="/register"
+                      className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    >
+                      Sign up
+                    </Link>
+                  </>
+                ) : (
+                  <>
+                    <Link
+                      to="/profile"
+                      className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    >
+                      Profile
+                    </Link>
+                    <Link
+                      to="/register"
+                      className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    >
+                      Settings
+                    </Link>
+                    <Link
+                      to="/"
+                      className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                      onClick={logout}
+                    >
+                      Sign out
+                    </Link>
+                  </>
+                )}
               </div>
             </div>
           </div>

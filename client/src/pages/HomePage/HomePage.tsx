@@ -98,9 +98,7 @@ const HomePage = () => {
       <aside className="sticky top-24 hidden w-80 shrink-0 xl:block">
         <div className="overflow-hidden rounded-lg bg-white shadow">
           <div className="px-4 py-5 sm:p-6">
-            <h4 className="text-lg font-semibold text-gray-900 mb-2">
-              Filters
-            </h4>
+            <h4 className="text-lg font-semibold text-gray-900">Filters</h4>
 
             <div className="py-5">
               <Divider />
@@ -313,7 +311,7 @@ const HomePage = () => {
         </div>
 
         {/* Jobs List Grid extra-large - 5 columns , large - 4 columns, medium - 3 columns, small - 2 columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-6">
           {jobs.map((job, index) => (
             <div
               key={job.id}

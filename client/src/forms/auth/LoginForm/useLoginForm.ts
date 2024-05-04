@@ -38,8 +38,8 @@ const useLoginForm = () => {
           email: values.email,
           password: values.password,
         };
-        const { token } = await login(payload);
-        setLogin(token);
+        const { token, user } = await login(payload);
+        setLogin(token, user);
         form.resetForm();
         navigate("/");
       } catch (error) {

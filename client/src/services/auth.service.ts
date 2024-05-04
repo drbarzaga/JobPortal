@@ -34,6 +34,11 @@ export default class AuthService {
       );
   }
 
+  // Get current user
+  public async getCurrentUser() {
+    return this.http.service().get<IModels.IUserAccount>("auth/me", {});
+  }
+
   // Logout user
   public async logout() {
     // TODO: Implement logout

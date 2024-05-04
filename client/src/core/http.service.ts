@@ -3,6 +3,7 @@ import axios, { AxiosInstance, AxiosResponse, AxiosRequestConfig } from "axios";
 
 import { HttpMethod } from "@/enums";
 import { IService } from "@/interfaces";
+import StorageService from "./storage.service";
 
 export default class HttpService {
   private http: AxiosInstance;
@@ -18,7 +19,7 @@ export default class HttpService {
 
   // Get authorization token from cookies
   private get getAuthorization() {
-    const accessToken = Cookies.get("AccessToken") || "";
+    const accessToken = StorageService.getItem("access_token") || "";
     return accessToken ? { Authorization: `Bearer ${accessToken}` } : {};
   }
 
