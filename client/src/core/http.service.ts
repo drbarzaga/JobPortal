@@ -1,4 +1,3 @@
-import Cookies from "js-cookie";
 import axios, { AxiosInstance, AxiosResponse, AxiosRequestConfig } from "axios";
 
 import { HttpMethod } from "@/enums";
