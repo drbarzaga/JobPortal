@@ -34,9 +34,6 @@
 #### Home Page as Guest
 <img width="1512" alt="image" src="https://github.com/drbarzaga/JobPortal/assets/12173976/42526467-2b0a-4138-b0aa-f546d4735004">
 
-#### Home Page as Guest
-<img width="1512" alt="image" src="https://github.com/drbarzaga/JobPortal/assets/12173976/42526467-2b0a-4138-b0aa-f546d4735004">
-
 ## Tech Stack
 
 - [React](https://react.dev/) - Frontend UI Library
