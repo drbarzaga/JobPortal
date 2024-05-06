@@ -2,18 +2,20 @@ import { create } from "zustand";
 import { mountStoreDevtool } from "simple-zustand-devtools";
 import { IStores } from "@/interfaces";
 import AuthService from "@/services/auth.service";
-import { RequestStatus } from "@/enums";
 
 const initialState = {
   termsConditionsModalOpen: false,
   setTermsConditionsModalOpen: () => {},
 
   isLogging: false,
+  loginError: "",
   login: () => {},
+  clearLoginError: () => {},
 
-  registerStatus: RequestStatus.IDLE,
-  registerMessage: "",
+  registerSuccessMessage: "",
+  registerErrorMessage: "",
   register: () => {},
+  clearRegisterMessages: () => {},
 };
 
 const useAuthStore = create<IStores.IAuthStore>((set) => ({
@@ -32,28 +34,40 @@ const useAuthStore = create<IStores.IAuthStore>((set) => ({
       const response = await authService.login(payload, options);
       set({ isLogging: false });
       return response;
-    } catch (error) {
+    } catch (error: any) {
       console.error(error);
       set({ isLogging: false });
+      set({ loginError: error.response.data.message });
       throw error;
     }
   },
 
   // This function is used to call the register endpoint
   register: async (payload, options) => {
-    set({ registerStatus: RequestStatus.LOADING });
+    set({ registerSuccessMessage: "" });
+    set({ registerErrorMessage: "" });
     try {
       const authService = new AuthService();
       const response = await authService.register(payload, options);
-      set({ registerMessage: response.message });
-      set({ registerStatus: RequestStatus.SUCCESS });
+      set({ registerSuccessMessage: response.message });
     } catch (error: any) {
-      set({ registerStatus: RequestStatus.ERROR });
+      console.error(error);
       if (error.response) {
-        set({ registerMessage: error.response.data.message });
+        set({ registerErrorMessage: error.response.data.message });
       }
       throw error;
     }
+  },
+
+  // This function is used to clear the login error message
+  clearLoginError: () => {
+    set({ loginError: "" });
+  },
+
+  // This function is used to clear the register success and error messages
+  clearRegisterMessages: () => {
+    set({ registerSuccessMessage: "" });
+    set({ registerErrorMessage: "" });
   },
 }));
 

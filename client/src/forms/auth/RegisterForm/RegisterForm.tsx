@@ -3,13 +3,12 @@ import useRegisterForm from "./useRegisterForm";
 import TermsAndConditionsDialog from "@/components/dialogs/TermsAndConditionsDialog";
 import FieldError from "@/components/core-ui/FieldError";
 import Alert from "@/components/core-ui/Alert";
-import { RequestStatus } from "@/enums";
 
 const RegisterForm = () => {
   const {
     form,
-    registerStatus,
-    registerMessage,
+    registerSuccessMessage,
+    registerErrorMessage,
     termsConditionsModalOpen,
     handleOnOpenTermsConditionsModal,
     handleOnCloseTermsConditionsModal,
@@ -17,14 +16,14 @@ const RegisterForm = () => {
 
   return (
     <>
-      {registerStatus === RequestStatus.SUCCESS && (
+      {registerSuccessMessage && (
         <div className="mb-4">
-          <Alert type="success" message={registerMessage} />
+          <Alert type="success" message={registerSuccessMessage} />
         </div>
       )}
-      {registerStatus === RequestStatus.ERROR && (
+      {registerErrorMessage && (
         <div className="mb-4">
-          <Alert type="error" message={registerMessage} />
+          <Alert type="error" message={registerErrorMessage} />
         </div>
       )}
       <form onSubmit={form.handleSubmit} className="space-y-6" noValidate>
