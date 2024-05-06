@@ -1,6 +1,7 @@
 import { IRegisterPayload } from "@/interfaces/models";
 import useAuthStore from "@/stores/auth.store";
 import { useFormik } from "formik";
+import { useEffect } from "react";
 import * as Yup from "yup";
 
 const FORM_INITIAL_VALUES = {
@@ -13,17 +14,19 @@ const FORM_INITIAL_VALUES = {
 
 const useRegisterForm = () => {
   const {
-    registerStatus,
-    registerMessage,
+    registerSuccessMessage,
+    registerErrorMessage,
     termsConditionsModalOpen,
     setTermsConditionsModalOpen,
     register,
+    clearRegisterMessages,
   } = useAuthStore((state) => ({
-    registerStatus: state.registerStatus,
-    registerMessage: state.registerMessage,
+    registerSuccessMessage: state.registerSuccessMessage,
+    registerErrorMessage: state.registerErrorMessage,
     termsConditionsModalOpen: state.termsConditionsModalOpen,
     setTermsConditionsModalOpen: state.setTermsConditionsModalOpen,
     register: state.register,
+    clearRegisterMessages: state.clearRegisterMessages,
   }));
 
   const validationSchema = Yup.object({
@@ -76,10 +79,16 @@ const useRegisterForm = () => {
     setTermsConditionsModalOpen(false);
   };
 
+  useEffect(() => {
+    return () => {
+      clearRegisterMessages();
+    };
+  }, [clearRegisterMessages]);
+
   return {
     form,
-    registerStatus,
-    registerMessage,
+    registerSuccessMessage,
+    registerErrorMessage,
     termsConditionsModalOpen,
     handleOnOpenTermsConditionsModal,
     handleOnCloseTermsConditionsModal,
