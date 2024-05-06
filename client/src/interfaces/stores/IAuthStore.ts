@@ -1,5 +1,4 @@
 import { IModels } from "..";
-import { IRequestStatus } from "../http-client/IRequestStatus";
 import { ILoginResponse } from "../models";
 
 export interface IAuthStore {
@@ -7,12 +6,15 @@ export interface IAuthStore {
   setTermsConditionsModalOpen: (value: boolean) => void;
 
   isLogging: boolean;
+  loginError: string;
   login: (
     payload: IModels.ILoginPayload,
     options?: any
   ) => Promise<ILoginResponse>;
+  clearLoginError: () => void;
 
-  registerStatus: IRequestStatus;
-  registerMessage: string;
+  registerSuccessMessage?: string;
+  registerErrorMessage?: string;
   register: (payload: IModels.IRegisterPayload, options?: any) => Promise<void>;
+  clearRegisterMessages: () => void;
 }

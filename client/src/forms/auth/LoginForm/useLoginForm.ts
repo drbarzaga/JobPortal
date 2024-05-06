@@ -2,6 +2,7 @@ import { ILoginPayload } from "@/interfaces/models";
 import { useAuth } from "@/providers";
 import useAuthStore from "@/stores/auth.store";
 import { useFormik } from "formik";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 
@@ -13,8 +14,10 @@ const FORM_INITIAL_VALUES = {
 const useLoginForm = () => {
   const { login: setLogin } = useAuth();
   const navigate = useNavigate();
-  const { login } = useAuthStore((state) => ({
+  const { loginError, login, clearLoginError } = useAuthStore((state) => ({
     login: state.login,
+    loginError: state.loginError,
+    clearLoginError: state.clearLoginError,
   }));
 
   const validationSchema = Yup.object({
@@ -50,8 +53,15 @@ const useLoginForm = () => {
     },
   });
 
+  useEffect(() => {
+    return () => {
+      clearLoginError();
+    };
+  }, [clearLoginError]);
+
   return {
     form,
+    loginError,
   };
 };
 
